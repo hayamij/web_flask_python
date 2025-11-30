@@ -1,0 +1,26 @@
+body {
+    background-color: #f5f6fa;
+}
+
+.card {
+    border-radius: 15px;
+}
+
+.chart-container {
+    border-radius: 15px;
+    background: white;
+    padding: 20px;
+    box-shadow: 0 3px 15px rgba(0,0,0,0.1);
+}
+
+/* Thu nhỏ vùng chứa biểu đồ */
+.chart-container {
+    max-width: 700px;   /* Giới hạn chiều ngang */
+    margin: auto;       /* Canh giữa */
+    padding: 20px;
+}
+
+/* Thu nhỏ canvas */
+.chart-container canvas {
+    max-height: 350px;  /* Giới hạn chiều cao */
+}
