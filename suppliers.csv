@@ -1,0 +1,26 @@
+supplier_id,supplier_name,contact,email,country
+S001,Vinamilk,Phòng Kinh Doanh,contact@vinamilk.com,Vietnam
+S002,Oishi,Sales Dept,sales@oishi.vn,Vietnam
+S003,ACECOOK,Export Team,export@acecook.vn,Vietnam
+S004,PepsiCo,Regional Sales,pepsico@pepsico.com,Global
+S005,TrungNguyen,Customer Service,info@trungnguyen.com,Vietnam
+S006,Attica,Distribution,contact@attica.vn,Vietnam
+S007,Lotus,Sales,contact@lotus.com,Vietnam
+S008,LocalBakery,Owner,owner@localbakery.local,Vietnam
+S009,LaVie,Customer Support,support@lavie.com,Vietnam
+S010,YenHouse,Sales,yenhouse@example.com,Vietnam
+S011,Ajinomoto,Corporate,info@ajinomoto.com,Vietnam
+S012,LocalFarm,Farm Owner,farm@localfarm.local,Vietnam
+S013,FoodCo,Sales,hello@foodco.local,Vietnam
+S014,PharmaCo,Sales,info@pharmaco.local,Vietnam
+S015,Colgate,Regional Office,contact@colgate.com,Global
+S016,P&G,Regional Office,contact@pg.com,Global
+S017,Unilever,Regional Office,contact@unilever.com,Global
+S018,Bel,Sales,contact@bel.com,Global
+S019,LocalSnack,Owner,owner@localsnack.local,Vietnam
+S020,PeanutCo,Sales,contact@peanutco.local,Vietnam
+S021,Vissan,Sales,contact@vissan.com,Vietnam
+S022,JuiceCo,Sales,contact@juiceco.local,Vietnam
+S023,Chupa,Sales,contact@chupa.com,Global
+S024,HoneyFarm,Sales,contact@honeyfarm.local,Vietnam
+S025,AppleJuiceCo,Sales,contact@applejuiceco.local,Vietnam

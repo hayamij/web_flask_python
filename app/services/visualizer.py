@@ -59,7 +59,8 @@ class VisualizerService:
     def create_pie_chart(
         labels: List[str], 
         values: List[float], 
-        title: str = "Biểu đồ tròn"
+        title: str = "Biểu đồ tròn",
+        height: int = 400
     ) -> str:
         """
         Tạo biểu đồ tròn với Plotly
@@ -88,7 +89,7 @@ class VisualizerService:
         fig.update_layout(
             title=title,
             template="plotly_white",
-            height=400
+            height=height
         )
         
         return fig.to_html(full_html=False, include_plotlyjs='cdn')
@@ -112,10 +113,10 @@ class VisualizerService:
         fig = make_subplots(
             rows=2, cols=2,
             subplot_titles=(
-                'Số lượng sản phẩm',
-                'Giá sản phẩm',
-                'Doanh thu theo sản phẩm',
-                'Phân bổ doanh thu'
+                    'Số lượng sản phẩm',
+                    'Giá sản phẩm',
+                    'Doanh thu theo sản phẩm',
+                    ''
             ),
             specs=[
                 [{"type": "bar"}, {"type": "bar"}],
@@ -144,11 +145,7 @@ class VisualizerService:
             row=2, col=1
         )
         
-        # Chart 4: Revenue pie
-        fig.add_trace(
-            go.Pie(labels=df['name'], values=df['revenue'], name='Doanh thu'),
-            row=2, col=2
-        )
+        # Chart 4 (removed): previously a revenue pie chart — intentionally left empty
         
         fig.update_layout(
             height=800,

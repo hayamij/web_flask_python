@@ -11,7 +11,7 @@ import os
 class DataAnalysisService:
     """Service xử lý và phân tích dữ liệu sản phẩm"""
     
-    def __init__(self, csv_path: str):
+    def __init__(self, csv_path: str, orders_path: str = 'orders.csv', order_details_path: str = 'order_details.csv'):
         """
         Khởi tạo service với đường dẫn CSV
         
@@ -20,6 +20,10 @@ class DataAnalysisService:
         """
         self.csv_path = csv_path
         self.df: pd.DataFrame = None
+        self.orders_path = orders_path
+        self.order_details_path = order_details_path
+        self.orders_df: pd.DataFrame = None
+        self.order_details_df: pd.DataFrame = None
     
     def load_data(self) -> pd.DataFrame:
         """
@@ -63,6 +67,91 @@ class DataAnalysisService:
             'avg_price': avg_price,
             'avg_quantity': avg_quantity
         }
+
+    def load_orders(self) -> pd.DataFrame:
+        """Load orders CSV into DataFrame"""
+        try:
+            if not os.path.exists(self.orders_path):
+                raise FileNotFoundError(f"Orders file not found: {self.orders_path}")
+
+            self.orders_df = pd.read_csv(self.orders_path, parse_dates=['order_date'])
+            return self.orders_df
+        except Exception as e:
+            raise Exception(f"Error loading orders CSV: {str(e)}")
+
+    def load_order_details(self) -> pd.DataFrame:
+        """Load order_details CSV into DataFrame"""
+        try:
+            if not os.path.exists(self.order_details_path):
+                raise FileNotFoundError(f"Order details file not found: {self.order_details_path}")
+
+            self.order_details_df = pd.read_csv(self.order_details_path)
+            return self.order_details_df
+        except Exception as e:
+            raise Exception(f"Error loading order details CSV: {str(e)}")
+
+    def get_total_orders(self) -> int:
+        if self.orders_df is None:
+            self.load_orders()
+        return len(self.orders_df)
+
+    def get_total_revenue(self) -> float:
+        # prefer authoritative total in orders.csv if present
+        if self.orders_df is None:
+            try:
+                self.load_orders()
+            except Exception:
+                pass
+
+        if self.orders_df is not None and 'total' in self.orders_df.columns:
+            return float(self.orders_df['total'].sum())
+
+        if self.order_details_df is None:
+            self.load_order_details()
+
+        return float(self.order_details_df['subtotal'].sum())
+
+    def get_total_quantity_sold(self) -> int:
+        if self.order_details_df is None:
+            self.load_order_details()
+        return int(self.order_details_df['quantity'].sum())
+
+    def get_avg_order_value(self) -> float:
+        total_orders = self.get_total_orders()
+        if total_orders == 0:
+            return 0.0
+        total_revenue = self.get_total_revenue()
+        return float(total_revenue / total_orders)
+
+    def get_revenue_over_time(self) -> pd.DataFrame:
+        """Return DataFrame with order_date and total revenue per date"""
+        if self.orders_df is None:
+            self.load_orders()
+
+        df = self.orders_df.copy()
+        if 'order_date' in df.columns:
+            df['order_date'] = pd.to_datetime(df['order_date'])
+            grouped = df.groupby(df['order_date'].dt.date)['total'].sum().reset_index()
+            grouped = grouped.sort_values('order_date')
+            return grouped
+        return pd.DataFrame(columns=['order_date', 'total'])
+
+    def get_orders_per_day(self) -> pd.DataFrame:
+        if self.orders_df is None:
+            self.load_orders()
+        df = self.orders_df.copy()
+        df['order_date'] = pd.to_datetime(df['order_date'])
+        grouped = df.groupby(df['order_date'].dt.date).size().reset_index(name='orders')
+        grouped = grouped.sort_values('order_date')
+        return grouped
+
+    def get_top_products_by_revenue(self, n: int = 10) -> pd.DataFrame:
+        if self.order_details_df is None:
+            self.load_order_details()
+
+        grouped = self.order_details_df.groupby(['product_id', 'product_name'])['subtotal'].sum().reset_index()
+        grouped = grouped.sort_values('subtotal', ascending=False).head(n)
+        return grouped
     
     def get_product_data(self) -> Tuple[List[str], List[int], List[float]]:
         """
