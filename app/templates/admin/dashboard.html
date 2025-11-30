@@ -20,7 +20,7 @@
     </div>
     {% else %}
 
-    <!-- Statistics Cards -->
+    <!-- KPI Cards: Products / Quantity / Revenue / Avg Order -->
     <div class="row g-4 mb-4">
         <div class="col-md-3">
             <div class="card shadow-sm border-0 stat-card stat-card-primary">
@@ -36,8 +36,8 @@
             <div class="card shadow-sm border-0 stat-card stat-card-success">
                 <div class="card-body text-center">
                     <i class="fa-solid fa-cubes stat-icon"></i>
-                    <h3 class="stat-value">{{ "{:,}".format(stats.total_quantity) }}</h3>
-                    <p class="stat-label">Tổng số lượng</p>
+                    <h3 class="stat-value">{{ "{:,}".format(stats.total_quantity_sold if stats.total_quantity_sold is defined else stats.total_quantity) }}</h3>
+                    <p class="stat-label">Tổng số lượng bán</p>
                 </div>
             </div>
         </div>
@@ -55,94 +55,62 @@
         <div class="col-md-3">
             <div class="card shadow-sm border-0 stat-card stat-card-info">
                 <div class="card-body text-center">
-                    <i class="fa-solid fa-tag stat-icon"></i>
-                    <h3 class="stat-value">{{ "{:,.0f}".format(stats.avg_price) }}₫</h3>
-                    <p class="stat-label">Giá trung bình</p>
+                    <i class="fa-solid fa-receipt stat-icon"></i>
+                    <h3 class="stat-value">{{ "{:,.0f}".format(stats.avg_order_value) }}₫</h3>
+                    <p class="stat-label">Giá trị đơn trung bình</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Charts Row 1 -->
+    <!-- Charts Row 1: Top products / Orders per day / Orders count -->
     <div class="row g-4 mb-4">
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
-                    {{ bar_chart | safe }}
+                    {{ top_bar | safe }}
                 </div>
             </div>
         </div>
 
-        <div class="col-lg-6">
+        <div class="col-lg-4">
             <div class="card shadow-sm border-0">
                 <div class="card-body">
-                    {{ pie_chart | safe }}
+                    {{ orders_bar | safe }}
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-4">
+            <div class="card shadow-sm border-0">
+                <div class="card-body text-center">
+                    <h5>Số đơn hàng</h5>
+                    <h2>{{ stats.total_orders }}</h2>
+                    <p class="text-muted">(tổng đơn trong dữ liệu)</p>
                 </div>
             </div>
         </div>
     </div>
 
-    <!-- Multi Chart -->
+    <!-- Revenue over time -->
     <div class="row g-4 mb-4">
         <div class="col-12">
             <div class="card shadow-sm border-0">
                 <div class="card-header bg-white">
                     <h5 class="mb-0">
-                        <i class="fa-solid fa-chart-column"></i>
-                        Phân tích chi tiết
+                        <i class="fa-solid fa-line-chart"></i>
+                        Doanh thu theo thời gian
                     </h5>
                 </div>
                 <div class="card-body">
-                    {{ multi_chart | safe }}
+                    {{ revenue_line | safe }}
                 </div>
             </div>
         </div>
     </div>
 
     <!-- Products Table -->
-    <div class="row">
-        <div class="col-12">
-            <div class="card shadow-sm border-0">
-                <div class="card-header bg-white">
-                    <h5 class="mb-0">
-                        <i class="fa-solid fa-table"></i>
-                        Chi tiết sản phẩm
-                    </h5>
-                </div>
-                <div class="card-body">
-                    <div class="table-responsive">
-                        <table class="table table-hover table-striped align-middle">
-                            <thead class="table-dark">
-                                <tr>
-                                    <th>Sản phẩm</th>
-                                    <th class="text-end">Giá (₫)</th>
-                                    <th class="text-end">Số lượng</th>
-                                    <th class="text-end">Doanh thu (₫)</th>
-                                </tr>
-                            </thead>
-                            <tbody>
-                                {% for product in products %}
-                                <tr>
-                                    <td>
-                                        <i class="fa-solid fa-box-open text-primary me-2"></i>
-                                        <strong>{{ product.name }}</strong>
-                                    </td>
-                                    <td class="text-end">{{ "{:,.0f}".format(product.price) }}</td>
-                                    <td class="text-end">
-                                        <span class="badge bg-info">{{ product.quantity }}</span>
-                                    </td>
-                                    <td class="text-end text-success fw-bold">
-                                        {{ "{:,.0f}".format(product.revenue) }}
-                                    </td>
-                                </tr>
-                                {% endfor %}
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    <!-- Products table moved to /products page -->
 
     {% endif %}
 

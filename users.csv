@@ -1,0 +1,9 @@
+user_id,full_name,email,phone,address,created_at
+U001,Nguyễn Văn A,nva@example.com,0912345678,"Hà Nội, Việt Nam",2024-12-01
+U002,Trần Thị B,ttb@example.com,0987654321,"Hồ Chí Minh, Việt Nam",2025-01-05
+U003,Phạm Văn C,pvc@example.com,0901122334,"Đà Nẵng, Việt Nam",2025-01-20
+U004, Lê Thị D,ltd@example.com,0911223344,"Hải Phòng, Việt Nam",2025-02-02
+U005,Hoàng Văn E,hve@example.com,0977886655,"Cần Thơ, Việt Nam",2025-02-18
+U006,Ngô Thị F,ntf@example.com,0965544332,"Quảng Ninh, Việt Nam",2025-02-25
+U007,Đặng Văn G,dvg@example.com,0933221100,"Bình Dương, Việt Nam",2025-03-01
+U008,Phan Thị H,pth@example.com,0922113344,"Thanh Hóa, Việt Nam",2025-03-03

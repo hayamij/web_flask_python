@@ -14,14 +14,16 @@
         </li>
 
         <li>
-            <a href="#" class="sidebar-item">
+            <a href="{{ url_for('admin.products') }}" 
+               class="sidebar-item {% if active=='products' %}active{% endif %}">
                 <i class="fa-solid fa-box"></i> 
                 Sản phẩm
             </a>
         </li>
 
         <li>
-            <a href="#" class="sidebar-item">
+            <a href="{{ url_for('admin.charts') }}" 
+               class="sidebar-item {% if active=='charts' %}active{% endif %}">
                 <i class="fa-solid fa-chart-pie"></i> 
                 Báo cáo
             </a>

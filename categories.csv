@@ -1,0 +1,14 @@
+category_id,category_name,description
+C001,Dairy,Milk and dairy products
+C002,Snack,Snacks and savory bites
+C003,Noodles,Instant noodles and pasta
+C004,Beverage,Drinks and beverages
+C005,Coffee,Coffee products
+C006,Bakery,Bakery and bread
+C007,Health,Health supplements and medicine
+C008,Grocery,Pantry and grocery items
+C009,Produce,Fresh produce and fruit
+C010,PersonalCare,Personal care and hygiene
+C011,Household,Household cleaning products
+C012,Food,General food items
+C013,Convenience,Convenience preserved foods

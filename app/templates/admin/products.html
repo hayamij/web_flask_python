@@ -1,0 +1,68 @@
+{% extends "base.html" %}
+
+{% block title %}Products - Admin Panel{% endblock %}
+
+{% block content %}
+
+<div class="container-fluid">
+    <h1 class="mb-4">
+        <i class="fa-solid fa-boxes-stacked"></i>
+        Chi tiết sản phẩm
+    </h1>
+
+    {% if error %}
+    <div class="alert alert-danger" role="alert">
+        <i class="fa-solid fa-triangle-exclamation"></i>
+        <strong>Lỗi:</strong> {{ error }}
+    </div>
+    {% else %}
+
+    <div class="row">
+        <div class="col-12">
+            <div class="card shadow-sm border-0">
+                <div class="card-header bg-white">
+                    <h5 class="mb-0">
+                        <i class="fa-solid fa-table"></i>
+                        Danh sách sản phẩm
+                    </h5>
+                </div>
+                <div class="card-body">
+                    <div class="table-responsive">
+                        <table class="table table-hover table-striped align-middle">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Sản phẩm</th>
+                                    <th class="text-end">Giá (₫)</th>
+                                    <th class="text-end">Số lượng</th>
+                                    <th class="text-end">Doanh thu (₫)</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for product in products %}
+                                <tr>
+                                    <td>
+                                        <i class="fa-solid fa-box-open text-primary me-2"></i>
+                                        <strong>{{ product.name }}</strong>
+                                    </td>
+                                    <td class="text-end">{{ "{:,.0f}".format(product.price) }}</td>
+                                    <td class="text-end">
+                                        <span class="badge bg-info">{{ product.quantity }}</span>
+                                    </td>
+                                    <td class="text-end text-success fw-bold">
+                                        {{ "{:,.0f}".format(product.revenue) }}
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {% endif %}
+
+</div>
+
+{% endblock %}
