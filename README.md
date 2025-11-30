@@ -1,16 +1,16 @@
 # E-commerce Admin Dashboard
 
-## 🎯 Mục tiêu dự án
+## Mục tiêu dự án
 Xây dựng trang quản trị E-commerce mạnh mẽ với Flask, tập trung vào Data Visualization sử dụng các thư viện Python.
 
-## 🏗️ Kiến trúc dự án
+## Kiến trúc dự án
 - **Pattern**: Application Factory Pattern
 - **Framework**: Flask 3.0
 - **Database**: SQLAlchemy ORM
 - **Data Processing**: Pandas + NumPy
 - **Visualization**: Plotly (ưu tiên #1), Matplotlib, Seaborn
 
-## 📁 Cấu trúc thư mục
+## Cấu trúc thư mục
 
 ```
 web_flask_python/
@@ -43,7 +43,7 @@ web_flask_python/
 └── products.csv                 # Sample data
 ```
 
-## 🚀 Cài đặt
+## Cài đặt
 
 ### 1. Clone repository
 ```bash
@@ -70,7 +70,7 @@ python run.py
 
 Truy cập: http://127.0.0.1:5000/dashboard
 
-## 📊 Tính năng
+## Tính năng
 
 ### Dashboard Admin
 - ✅ Thống kê tổng quan (Tổng sản phẩm, số lượng, doanh thu)
@@ -81,7 +81,7 @@ Truy cập: http://127.0.0.1:5000/dashboard
 - ✅ Xử lý dữ liệu với Pandas
 - ✅ Server-Side Rendering (không viết JS thủ công)
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 | Category | Technology |
 |----------|-----------|
@@ -93,7 +93,7 @@ Truy cập: http://127.0.0.1:5000/dashboard
 | Frontend | Bootstrap 5 + Jinja2 |
 | Pattern | App Factory + Blueprints |
 
-## 📝 Coding Rules
+## 📝Coding Rules
 
 ### Separation of Concerns
 - **Routes** (`app/routes/`): Chỉ nhận request và trả về template
@@ -111,7 +111,7 @@ Truy cập: http://127.0.0.1:5000/dashboard
 - `try/except` cho data processing
 - Logging errors với `current_app.logger`
 
-## 🔧 Development
+## Development
 
 ### Cấu trúc Config
 - `DevelopmentConfig`: DEBUG=True
@@ -125,9 +125,9 @@ flask db migrate -m "Initial migration"
 flask db upgrade
 ```
 
-## 📈 Roadmap
+## Roadmap
 
-### Phase 1: Foundation ✅
+### Phase 1: Foundation
 - [x] App Factory Pattern
 - [x] Configuration system
 - [x] Database models
@@ -150,12 +150,6 @@ flask db upgrade
 - [ ] Machine Learning integration
 - [ ] Geographic visualization (Folium)
 
-## 👤 Author
-**Hayami J**
-- GitHub: [@hayamij](https://github.com/hayamij)
-
 ## 📄 License
 MIT License
 
----
-*Dự án tuân thủ 100% quy tắc trong `materials/rule.txt`*
