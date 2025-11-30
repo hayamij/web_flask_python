@@ -1,11 +1,6 @@
-# 🚀 QUICK START GUIDE
+# QUICK START GUIDE
 
-## Bước 1: Dọn dẹp files cũ (Tùy chọn)
-```bash
-python cleanup_old_files.py
-```
-
-## Bước 2: Cài đặt dependencies
+## Bước 1: Cài đặt dependencies
 ```bash
 pip install -r requirements.txt
 ```
@@ -19,17 +14,17 @@ pip install pandas==2.1.4
 pip install plotly==5.18.0
 ```
 
-## Bước 3: Chạy server
+## Bước 2: Chạy server
 ```bash
 python run.py
 ```
 
-## Bước 4: Truy cập Dashboard
+## Bước 3: Truy cập Dashboard
 Mở browser: http://127.0.0.1:5000/dashboard
 
 ---
 
-## 🎯 Kết quả mong đợi
+## Kết quả mong đợi
 
 Dashboard sẽ hiển thị:
 
@@ -49,7 +44,7 @@ Dashboard sẽ hiển thị:
 
 ---
 
-## 🔧 Troubleshooting
+## Troubleshooting
 
 ### Lỗi: ModuleNotFoundError
 ```bash
@@ -77,7 +72,7 @@ app.run(debug=True, host='0.0.0.0', port=5001)  # Đổi port
 
 ---
 
-## 📁 Cấu trúc quan trọng cần nhớ
+## Cấu trúc quan trọng cần nhớ
 
 ```
 web_flask_python/
@@ -96,7 +91,7 @@ web_flask_python/
 
 ---
 
-## 🎓 Nguyên tắc code
+## Nguyên tắc code
 
 1. **Routes chỉ nhận request**, không có logic
 2. **Services xử lý tất cả logic** (data + visualization)
@@ -106,13 +101,9 @@ web_flask_python/
 
 ---
 
-## 📚 Tài liệu tham khảo
+## Tài liệu tham khảo
 
 - Flask: https://flask.palletsprojects.com/
 - Plotly: https://plotly.com/python/
 - Pandas: https://pandas.pydata.org/
 - SQLAlchemy: https://www.sqlalchemy.org/
-
----
-
-**Chúc bạn code vui! 🎉**
