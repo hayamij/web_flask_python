@@ -93,7 +93,7 @@ Truy cập: http://127.0.0.1:5000/dashboard
 | Frontend | Bootstrap 5 + Jinja2 |
 | Pattern | App Factory + Blueprints |
 
-## 📝Coding Rules
+##Coding Rules
 
 ### Separation of Concerns
 - **Routes** (`app/routes/`): Chỉ nhận request và trả về template
@@ -150,6 +150,6 @@ flask db upgrade
 - [ ] Machine Learning integration
 - [ ] Geographic visualization (Folium)
 
-## 📄 License
+## License
 MIT License
 
