@@ -1,0 +1,40 @@
+# Flask E-commerce Admin Dashboard
+# Requirements for Production
+
+# Core Framework
+Flask==3.0.0
+Werkzeug==3.0.1
+
+# Database & ORM
+Flask-SQLAlchemy==3.1.1
+SQLAlchemy==2.0.23
+Flask-Migrate==4.0.5
+
+# Data Processing (REQUIRED by rules)
+pandas==2.1.4
+numpy==1.26.2
+
+# Data Visualization (REQUIRED by rules - Plotly priority #1)
+plotly==5.18.0
+kaleido==0.2.1
+
+# Alternative Visualization (for static images/reports)
+matplotlib==3.8.2
+seaborn==0.13.0
+
+# Template Engine (built-in with Flask)
+Jinja2==3.1.2
+
+# Environment & Config
+python-dotenv==1.0.0
+
+# Type Checking (development)
+mypy==1.7.1
+
+# Testing (optional)
+pytest==7.4.3
+pytest-flask==1.3.0
+
+# Code Quality (optional)
+black==23.12.1
+flake8==7.0.0
